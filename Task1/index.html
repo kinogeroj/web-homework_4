@@ -4,7 +4,7 @@
 
 	<HEAD>
 
-		<title>CV Site</title>
+		<title>My CV Site</title>
 
 		<meta charset="UTF-8">
 
@@ -30,6 +30,57 @@
 
 <BODY class="w3-light-grey">
 
+		<!-- Public static variables and lists-->
+
+		<?php
+		
+			class User {
+				
+                public static $name = 'Dmitrii Mironov';
+				public static $profi = 'IT Professional';
+				public static $city = 'Saint-Petersburg';
+				public static $email = 'dimamironov@mail.ru';
+				public static $phone = '+7 812 591 32 45';
+				public static $age = '38';
+                
+			}
+		
+        	$skills = [
+            
+            	'skill_name' => ['Citrix Virtualization Products', 'Citrix Networking Products', 'Microsoft Administration', 'Team management'],
+                'level' => [90, 90, 70, 80]
+                
+                ];
+                
+            $language = [
+            	
+                'language_name' => ['Russian', 'English'],
+            	'level' => [100, 80]
+            
+            	];
+        
+        	$experience = [
+            	
+                'job_name' => ['OCS Distribution Ltd.', 'Citrix OJSC', 'Complete Ltd.'],
+            	'start_date' => ['Sept 2022', 'Feb 2021', 'Aug 2007'],
+                'end_date' => ['Current', 'Jul 2022', 'Jan 2021'],
+                'position' => ['Lead Expert on Insfrastructure Services', 'Lead Technical Account Manager', 'Head of Group'],
+                'responsible' => ['Responsible for: auditing of existing Customers environment with reports; presale with presentations and technical analysis; project management and architecting technical solutions; Setting up and optimizing of infrastructure and production environment.', 'Responsible for: establish and manage regular conference calls to review outstanding items and ongoing projects with Customers; resolve Customer issues and maintain ownership until the problem resolved completely with minimal over site from more senior members of the team; write and review complex technical articles and proactive emails on Customer reported cases, product specifications, and previous experience; maintains account intelligence and delivers account briefings to management and sales when renewal notifications are due; develop project management skills through participation in projects; is able to self-prioritize work items based on customer requirements and minimal instruction from sr.; act as a resource for other teams as needed to troubleshoot and resolve specific Customer issues.', 'Responsible for; team leading and management; preparing certification and studying plans; auditing of existing Customers environment with reports; presale with presentations and technical analysis; basic project management and architecting technical solutions; setting up and optimizing of infrastructure and production environment; consulting and supporting of complex integrated environments.']
+            
+            	];
+        
+        	$education = [
+            	
+            	'edu_name' => ['GeekBrains', 'Saint-Petersburg State Politechnical University', 'Saint-Petersburg State Politechnical University'],
+                'edu_url' => ['gb.ru', 'spbstu.ru', 'spbstu.ru'],
+                'start_date' => ['Sept 2022', 'Sept 2005', 'Sept 2001'],
+                'end_date' => ['Current', 'May 2007', 'May 2005'],
+                'spec' => ['Business Intelligence Analitics', 'Radiophisics - Biology and Basics of Science of Medical Hardware', 'Radiophisics - Biology and Basics of Science of Medical Hardware']
+                
+            	];
+        
+        ?>
+
 		<!-- Page Container -->
 
 		<div class="w3-content w3-margin-top" style="max-width:1400px;">
@@ -44,107 +95,77 @@
 
 		<div class="w3-white w3-text-grey w3-card-4">
 
-		<div class="w3-display-container">
+			<div class="w3-display-container">
 
-		<img src="https://imgfon.ru/Images/Details_img_880px/Animals/glaza-belyy_fon-kotik-morda-polosatyy.webp" style="width:100%" alt="Avatar">
+			<img src="./img/IMG_4003.jpg" style="width:100%" alt="Avatar">
 
-		<div class="w3-display-bottomleft w3-container w3-text-black">
+				<div class="w3-display-bottomleft w3-container w3-text-black">
 
-		<h2><?php echo $name; ?></h2>
+					<h2><?php echo User::$name; ?></h2>
 
-		</div>
+				</div>
 
-		</div>
+			</div>
 
 		<div class="w3-container">
 
-		<p><i class="fa fa-briefcase fa-fw w3-margin-right w3-large w3-text-teal"></i><?php echo $profi; ?></p>
+		<p><i class="fa fa-briefcase fa-fw w3-margin-right w3-large w3-text-teal"></i><?php echo User::$profi; ?></p>
 
-		<p><i class="fa fa-home fa-fw w3-margin-right w3-large w3-text-teal"></i><?php echo $city ?></p>
+		<p><i class="fa fa-home fa-fw w3-margin-right w3-large w3-text-teal"></i><?php echo User::$city; ?></p>
 
-		<p><i class="fa fa-envelope fa-fw w3-margin-right w3-large w3-text-teal"></i><?php echo $email ?></p>
+		<p><i class="fa fa-envelope fa-fw w3-margin-right w3-large w3-text-teal"></i><?php echo User::$email; ?></p>
 
-		<p><i class="fa fa-phone fa-fw w3-margin-right w3-large w3-text-teal"></i><?php echo $phone ?></p>
+		<p><i class="fa fa-phone fa-fw w3-margin-right w3-large w3-text-teal"></i><?php echo User::$phone; ?></p>
 
-		<p><i class="fa fa-hourglass-half fa-fw w3-margin-right w3-large w3-text-teal"></i><?php echo $age ?> лет (<?php echo $days ?> дней)</p>
+		<p><i class="fa fa-hourglass-half fa-fw w3-margin-right w3-large w3-text-teal"></i><?php echo User::$age; ?> Years</p>
 
 		<hr>
 
-		<p class="w3-large"><b><i class="fa fa-asterisk fa-fw w3-margin-right w3-text-teal"></i>Навыки</b></p>
+		<p class="w3-large"><b><i class="fa fa-asterisk fa-fw w3-margin-right w3-text-teal"></i>Job Skills</b></p>
+        
+        <?php for($i=0; $i<count($skills['skill_name']); $i++) {?>
 
-		<p><?php echo $skills['skill_name'][0]; ?></p>
+			<p><?php echo $skills['skill_name'][$i]; ?></p>
 
-		<div class="w3-light-grey w3-round-xlarge w3-small">
+				<div class="w3-light-grey w3-round-xlarge w3-small">
 
-		<div class="w3-container w3-center w3-round-xlarge w3-teal" style="width:<?php echo $skills['level'][0]; ?>%"><?php echo $skills['level'][0]; ?>%</div>
+					<div class="w3-container w3-center w3-round-xlarge w3-teal" style="width:<?php echo $skills['level'][$i]; ?>%">
+			
+						<?php echo $skills['level'][$i]; ?>%
+	
+					</div>
 
-		</div>
+				</div>
 
-		<p><?php echo $skills['skill_name'][1]; ?></p>
-
-		<div class="w3-light-grey w3-round-xlarge w3-small">
-
-		<div class="w3-container w3-center w3-round-xlarge w3-teal" style="width:<?php echo $skills['level'][1]; ?>%">
-
-		<div class="w3-center w3-text-white"><?php echo $skills['level'][1]; ?>%</div>
-
-		</div>
-
-		</div>
-
-		<p><?php echo $skills['skill_name'][2]; ?></p>
-
-		<div class="w3-light-grey w3-round-xlarge w3-small">
-
-		<div class="w3-container w3-center w3-round-xlarge w3-teal" style="width:<?php echo $skills['level'][2]; ?>%"><?php echo $skills['level'][2]; ?>%</div>
-
-		</div>
-
-		<p><?php echo $skills['skill_name'][3]; ?></p>
-
-		<div class="w3-light-grey w3-round-xlarge w3-small">
-
-		<div class="w3-container w3-center w3-round-xlarge w3-teal" style="width:<?php echo $skills['level'][3]; ?>%"><?php echo $skills['level'][3]; ?>%</div>
-
-		</div>
-
+        <?php } ?>
+        
 		<br>
 
-		<p class="w3-large w3-text-theme"><b><i class="fa fa-globe fa-fw w3-margin-right w3-text-teal"></i>Языки</b></p>
+		<p class="w3-large w3-text-theme"><b><i class="fa fa-globe fa-fw w3-margin-right w3-text-teal"></i>Language skills</b></p>
 
-		<p>Английский</p>
+		<?php for($i=0; $i<count($language['language_name']); $i++) {?>
 
-		<div class="w3-light-grey w3-round-xlarge">
+		<p><?php echo $language['language_name'][$i]; ?></p>
 
-		<div class="w3-round-xlarge w3-teal" style="height:24px;width:100%"></div>
+			<div class="w3-light-grey w3-round-xlarge">
 
-		</div>
+				<div class="w3-round-xlarge w3-teal" style="height:24px;width:<?php echo $language['level'][$i]; ?>%">
+			
+				</div>
 
-		<p>Испанский</p>
+			</div>
 
-		<div class="w3-light-grey w3-round-xlarge">
-
-		<div class="w3-round-xlarge w3-teal" style="height:24px;width:55%"></div>
-
-		</div>
-
-		<p>Немецкий</p>
-
-		<div class="w3-light-grey w3-round-xlarge">
-
-		<div class="w3-round-xlarge w3-teal" style="height:24px;width:25%"></div>
-
-		</div>
+		<?php } ?>
 
 		<br>
-
-		</div>
 
 		</div><br>
 
 		<!-- End Left Column -->
 
 		</div>
+        
+        </div>
 
 		<!-- Right Column -->
 
@@ -152,81 +173,45 @@
 
 		<div class="w3-container w3-card w3-white w3-margin-bottom">
 
-		<h2 class="w3-text-grey w3-padding-16"><i class="fa fa-suitcase fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>Опыт работы</h2>
+		<h2 class="w3-text-grey w3-padding-16"><i class="fa fa-suitcase fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>Work Experience</h2>
 
-		<div class="w3-container">
+		<?php for($i=0; $i<count($experience['job_name']); $i++) {?>
 
-		<h5 class="w3-opacity"><b>Front End Developer </b></h5>
+			<div class="w3-container">
 
-		<h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>Jan 2015 - <span class="w3-tag w3-teal w3-round">Current</span></h6>
+				<h5 class="w3-opacity"><b><?php echo $experience['position'][$i]; ?> / <?php echo $experience['job_name'][$i]; ?></b></h5>
 
-		<p>Lorem ipsum dolor sit amet. Praesentium magnam consectetur vel in deserunt aspernatur est reprehenderit sunt hic. Nulla tempora soluta ea et odio, unde doloremque repellendus iure, iste.</p>
+				<h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i><?php echo $experience['start_date'][$i]; ?> - <?php echo $experience['end_date'][$i]; ?></h6>
 
-		<hr>
+				<p><?php echo $experience['responsible'][$i]; ?></p>
 
-		</div>
+				<hr>
 
-		<div class="w3-container">
+			</div>
 
-		<h5 class="w3-opacity"><b>Web Developer / something.com</b></h5>
-
-		<h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>Mar 2012 - Dec 2014</h6>
-
-		<p>Consectetur adipisicing elit. Praesentium magnam consectetur vel in deserunt aspernatur est reprehenderit sunt hic. Nulla tempora soluta ea et odio, unde doloremque repellendus iure, iste.</p>
-
-		<hr>
-
-		</div>
-
-		<div class="w3-container">
-
-		<h5 class="w3-opacity"><b>Graphic Designer / designsomething.com</b></h5>
-
-		<h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>Jun 2010 - Mar 2012</h6>
-
-		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. </p><br>
-
-		</div>
+		<?php } ?>
 
 		</div>
 
 		<div class="w3-container w3-card w3-white">
 
-		<h2 class="w3-text-grey w3-padding-16"><i class="fa fa-certificate fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>Образование</h2>
+		<h2 class="w3-text-grey w3-padding-16"><i class="fa fa-certificate fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>Education</h2>
 
-		<div class="w3-container">
+		<?php for($i=0; $i<count($education['edu_name']); $i++) {?>
 
-		<h5 class="w3-opacity"><b>gb.ru</b></h5>
+			<div class="w3-container">
 
-		<h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>Forever</h6>
+				<h5 class="w3-opacity"><b><?php echo $education['edu_name'][$i]; ?> / <?php echo $education['edu_url'][$i]; ?></b></h5>
 
-		<p>Web Development! All I need to know in one place</p>
+				<h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i><?php echo $education['start_date'][$i]; ?> - <?php echo $education['end_date'][$i]; ?></h6>
 
-		<hr>
+				<p><?php echo $education['spec'][$i]; ?></p>
 
-		</div>
+				<hr>
 
-		<div class="w3-container">
+			</div>
 
-		<h5 class="w3-opacity"><b>London Business School</b></h5>
-
-		<h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>2013 - 2015</h6>
-
-		<p>Master Degree</p>
-
-		<hr>
-
-		</div>
-
-		<div class="w3-container">
-
-		<h5 class="w3-opacity"><b>School of Coding</b></h5>
-
-		<h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>2010 - 2013</h6>
-
-		<p>Bachelor Degree</p><br>
-
-		</div>
+		<?php } ?>
 
 		</div>
 
