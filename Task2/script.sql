@@ -1,0 +1,13 @@
+-- create DATABASE
+CREATE TABLE CLASSMATES (
+  cmId INTEGER PRIMARY KEY,
+  name TEXT NOT NULL,
+  age INTEGER NOT NULL,
+  address TEXT NOT NULL
+);
+
+-- insert DATA
+INSERT INTO CLASSMATES VALUES (0001, 'Dmitriy Mironov', 38, 'Saint-Petersburg');
+
+-- fetch DATA
+SELECT * FROM CLASSMATES WHERE name LIKE '%Dmitriy%'
